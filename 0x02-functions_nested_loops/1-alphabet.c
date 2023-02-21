@@ -13,11 +13,6 @@ void print_alphabet(void)
 		_putchar(letter);
 		letter++;
 	}
-	_putchar('\n');
-}
+	_putchar('\n')
 
-int main(void)
-{
-	print_alphabet();
-	return (0);
 }
