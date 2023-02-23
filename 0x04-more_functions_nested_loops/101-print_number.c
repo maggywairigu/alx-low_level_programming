@@ -4,40 +4,50 @@
  * @n: number to be printed
  * Description: Can only use _putchar to print.
  */
+#include "holberton.h"
+
+/**
+ * print_number - Function that prints an integer.
+ * @n: int type number
+ * Description: Can only use _putchar to print.
+ */
 void print_number(int n)
 {
-	long p;
-	int b;
-	long num;
+	long m; /* power of 10 */
+	int c; /* boolean check */
+	long num; /* convert int to long */
 
 	num = n;
+	/* negatives */
 	if (num < 0)
 	{
 		num *= -1;
 		_putchar('-');
 	}
 
-	p = 1;
-	b = 1;
-	while (b)
+	/* count up */
+	m = 1;
+	c = 1;
+	while (c)
 	{
-		if (num / (p * 10) > 0)
-			p *= 10;
+		if (num / (m * 10) > 0)
+			m *= 10;
 		else
-			b = 0;
+			c = 0;
 	}
 
+	/* count down */
 	while (num >= 0)
 	{
-		if (p == 1)
+		if (m == 1)
 		{
 			_putchar(num % 10 + '0');
 			num = -1;
 		}
 		else
 		{
-			_putchar((num / p % 10) + '0');
-			p /= 10;
+			_putchar((num / m % 10) + '0');
+			m /= 10;
 		}
 	}
 }
