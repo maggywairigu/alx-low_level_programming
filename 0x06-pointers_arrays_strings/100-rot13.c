@@ -4,20 +4,34 @@
  * @s: string
  * Return: string `s` rotated
  */
-
 char *rot13(char *s)
 {
+	char *p = s;
 	int i;
-	char storeh[] = "NOPQRSTUVWXYZABCDEFGHIJKLM";
-	char storel[] = "nopqrstuvwxyzabcdefghijklm";
 
-	for (i = 0; s[i] != '\0'; i++)
+	while (*p)
 	{
-		if ((s[i] > 64 && s[i] < 91) || (s[i] > 96 && s[i] < 123))
-		{
-			s[i] = (s[i] - 65 > 25) ?
-				storel[s[i] - 97] : storeh[s[i] - 65];
-		}
+		if ((*p >= 'a' && *p <= 'm') || (*p >= 'A' && *p <= 'M'))
+			*p += 13;
+		else if ((*p >= 'n' && *p <= 'z') || (*p >= 'N' && *p <= 'Z'))
+			*p -= 13;
+		p++;
 	}
-	return (s);
+
+	p = s;
+	while (*p)
+	{
+		for (i = 0; i < 13; i++)
+		{
+			if (*p == '[')
+				*p = 'A';
+			else if (*p == '{')
+				*p = 'a';
+			else
+				(*p)++;
+		}
+		p++;
+	}
+
+	return s;
 }
