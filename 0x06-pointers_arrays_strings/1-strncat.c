@@ -1,0 +1,22 @@
+#include "main.h"
+/**
+ **_strncat - appends the src string to the dest string
+ *@dest: string 1
+ *@src: string 2
+ *@n: number of elements to be appended
+ *Return: pointer to the resulting string dest
+ */
+char *_strncat(char *dest, char *src, int n)
+{
+	int i, j;
+
+	for (i = 0; dest[i] != '\0'; i++)
+		;
+
+	for (j = 0; src[j] != '\0' && n > 0; j++, n--)
+	{
+		dest[i] = src[j];
+		i++;
+	}
+	return (dest);
+}
