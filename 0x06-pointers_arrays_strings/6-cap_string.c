@@ -19,7 +19,7 @@ char *cap_string(char *s)
 				k = 1;
 		}
 
-		if(k)
+		if (k)
 		{
 			if (s[i] > 96 && s[i] < 123)
 			{
