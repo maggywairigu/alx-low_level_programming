@@ -1,14 +1,4 @@
-#Compiler
 CC = gcc
-
-#Source files
 SRC = main.c school.c
-
-#Rule for the 'all' target
-all: school
-
-school: $(SRC)
-	$(CC) -o school $(SRC)
-
-clean:
-	rm -f school
+all: $(SRC)
+	$(CC) $(SRC) -o school
