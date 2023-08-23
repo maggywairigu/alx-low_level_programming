@@ -1,0 +1,9 @@
+#Rule for the 'all' target
+all: school
+
+school: main.c school.c
+	gcc -o school main.c school.c
+
+#This rule will be executed if you run 'make clean'
+clean:
+	rm -f school
